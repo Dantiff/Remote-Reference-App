@@ -2,12 +2,31 @@
 
 <html>
   <head>
-    <title>Django-Angular2-Setup</title>
+    <title>Remote Reference App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    <!-- =========================
+         STATIC STYLESHEETS
+    ============================== -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.themes.css' %}">
+
     <base href="/">
-    <!-- Polyfill(s) for older browsers -->
+
+
+    <!-- =========================
+         STATIC JAVASCRIPT
+    ============================== -->
     <script src="{{ ANGULAR_URL }}node_modules/core-js/client/shim.min.js"></script>
 
     <script src="{{ ANGULAR_URL }}node_modules/zone.js/dist/zone.js"></script>
@@ -25,6 +44,35 @@
   </head>
 
   <body>
-    <my-app>Loading...</my-app>
+
+    <!-- =========================
+        INCLUDE MESSAGES
+    ============================== -->
+    {% include 'partials/messages.html' %}
+
+    <my-app>
+        <div class="preloader">
+    	    <div class="sk-rotating-plane"></div>
+        </div>
+    </my-app>
+
+
+    <!-- =========================
+        FOOTER SECTION
+    ============================== -->
+    {% include 'partials/footer.html' %}
+
+
+    <!-- =========================
+         SCRIPTS
+    ============================== -->
+    <script src=" {% static 'js/jquery.js' %}"></script>
+    <script src=" {% static 'js/bootstrap.min.js' %}"></script>
+    <script src=" {% static 'js/jquery.parallax.js' %}"></script>
+    <script src=" {% static 'js/carousel.min.js' %}"></script>
+    <script src=" {% static 'js/smoothscroll.js' %}"></script>
+    <script src=" {% static 'js/wow.min.js' %}"></script>
+    <script src=" {% static 'js/custom.js' %}"></script>
+
   </body>
 </html>
