@@ -17,15 +17,16 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
-from core.views import SampleView, AngularApp, NgTemplateView
+from core.views import *
 
 ngurls = [
-    url(r'^$', SampleView.as_view(), name='sample'),
-    url(r'^ng/$', NgTemplateView.as_view(), name='ngTemplate'),
+    url(r'^$', NgView.as_view(), name='ngViews'),
+    url(r'^home/$', NgHomeView.as_view(), name='ngTemplate'),
 ]
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^sample/', include(ngurls)),
+    url(r'^ngViews/', include(ngurls)),
+    url(r'^', include('core.urls')),
     url(r'^(?!ng/).*$', AngularApp.as_view(), name="angular_app"),
 ] + static(settings.ANGULAR_URL, document_root=settings.ANGULAR_ROOT)

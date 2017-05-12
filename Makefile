@@ -4,6 +4,9 @@ export DJANGO_SETTINGS_MODULE=app.settings
 # Installs development requirements.
 dev:
 	pip install -r requirements.txt
+	pip install djangorestframework
+	pip install markdown
+	pip install django-filter
 
 # Runs development server.
 run:
