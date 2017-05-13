@@ -24,9 +24,15 @@ class NgView(View):
 
 
 class NgHomeView(View):
+	"""To render home view"""
+	def get(self, request):
+		return render(request, 'home.html', {"user": request.user})
+
+
+class NgDjView(View):
 	"""View to render django template to angular"""
 	def get(self, request):
-		return render(request, 'template.html', {"django_variable": "This is django context variable"})
+		return render(request, 'template.html', {"user": request.user, "django_variable": "I cracked this"})
 
 
 class UserViewSet(viewsets.ModelViewSet):
