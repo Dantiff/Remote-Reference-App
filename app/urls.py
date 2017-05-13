@@ -27,6 +27,7 @@ ngurls = [
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ngViews/', include(ngurls)),
-    url(r'^', include('core.urls')),
     url(r'^(?!ng/).*$', AngularApp.as_view(), name="angular_app"),
+    url(r'^', include('core.urls')),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ] + static(settings.ANGULAR_URL, document_root=settings.ANGULAR_ROOT)

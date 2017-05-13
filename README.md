@@ -7,6 +7,7 @@ Please find the live app working <strong><a href="http://bivestorg.pythonanywher
 
 * Django backend in `./core`
 * AngularJS 2 (v4) frontend in `./ngApp`
+* Django REST framework for API support in `./rest_framework`
 * Support and integration of both Jinja2 and Django template engines
 * Jinja2 Template with variales from django and angular
 * Testing support using Karma and Lite-Servers

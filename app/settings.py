@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -147,10 +148,23 @@ STATIC_URL = '/static/'
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 MEDIA_ROOT = u'/home/bivestorg/app/media'
+
 MEDIA_URL = '/media/'
+
 STATIC_ROOT = u'/home/bivestorg/app/static'
 
 STATIC_URL = '/static/'
 
 ANGULAR_URL = '/ng/'
+
 ANGULAR_ROOT = os.path.join(BASE_DIR, 'ngApp/')
+
+#The dictionary containing the API configs for the REST framework
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'PAGE_SIZE': 10
+}
