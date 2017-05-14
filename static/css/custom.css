@@ -112,6 +112,19 @@ footer {
     color: #004d00 !important;
 }
 
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.form-errors {
+    color: red;
+    font-family: lobster;
+}
+
 /*---------------------------------------
     Preloader section
 -----------------------------------------*/
@@ -362,6 +375,55 @@ footer {
     background: #003333;
     color: #ffffff;
 }
+
+
+
+/*---------------------------------------
+    Login section
+-----------------------------------------*/
+
+#login {
+    padding: 4em 0 0 0;
+}
+
+#login p {
+  color: #ffffff;
+}
+
+
+#login .form-control {
+  background: #ccccff;
+  border: 2px solid #ffffff;
+  border-radius: 0px;
+  color: black;
+  margin: 10px;
+}
+
+#login input {
+  height: 40px;
+}
+
+#login input[type="submit"] {
+  background: #f2545f;
+  border-radius: 100px;
+  border: none;
+  color: #ffffff;
+  letter-spacing: 2px;
+  height: 40px;
+  margin-top: 12px;
+  transition: all 0.4s ease-in-out;
+  font-style: italic;
+}
+
+#login input[type="submit"]:hover {
+  background: #ffffff;
+  color: #222;
+}
+
+.register-icon {
+    padding-bottom: 15px !important;
+}
+
 
 /*---------------------------------------
     Footer section

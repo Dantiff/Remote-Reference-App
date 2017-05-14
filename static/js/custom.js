@@ -17,6 +17,20 @@ $(window).scroll(function() {
 });
 
 
+ /* Page focusing on specific section On-Pageload
+  -----------------------------------------------*/
+$(window).load(function(){
+    var url = window.location.href;
+    if (url = "http://bivestorg.pythonanywhere.com/register/") {
+        $.scrollTo("section[name = reg_form]");
+    }
+    if (url = "http://bivestorg.pythonanywhere.com/login/") {
+        $.scrollTo("section[name = login_form]");
+    }
+
+});
+
+
 /* HTML document is loaded. DOM is ready.
 -------------------------------------------*/
 $(document).ready(function() {

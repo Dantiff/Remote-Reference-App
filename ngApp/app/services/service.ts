@@ -1,20 +1,27 @@
-import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
-import {Observable} from 'rxjs/Rx';
+import {Injectable} from "@angular/core";
+import {HTTP_PROVIDERS, Http, Response, Headers, RequestOptions} from "@angular/http";  # <-- change this line
+import {Observable} from "rxjs/Rx";
 
 @Injectable()
+
 export class AppService {
 
   constructor(private http:Http) { }
 
   //Login user
-  login() {
-    return this.http.post('/api-auth/login').map((res:Response) => res.json());
+  login(creds) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify(creds);
+    return this.http.post('/api-auth/login/', body, headers).map((res: Response) => res.json());
   }
 
   //Register user
-  login() {
-    return this.http.post('/api-auth/register').map((res:Response) => res.json());
+  register(creds) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let body = JSON.stringify(creds);
+    return this.http.post('/api-auth/register/', body, headers).map((res: Response) => res.json());
   }
 
 }
