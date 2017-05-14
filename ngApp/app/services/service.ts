@@ -8,6 +8,11 @@ export class AppService {
 
   constructor(private http:Http) { }
 
+  //Get list of users is_staff, username, email
+  getUsers() {
+    this.http.get('/users').map((res:Response) => res.json())
+  }
+
   //Login user
   login(creds) {
     let headers = new Headers({ 'Content-Type': 'application/json' });

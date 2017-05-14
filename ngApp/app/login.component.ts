@@ -10,6 +10,7 @@ import {Observable} from "rxjs/Rx";
 export class LoginComponent {
 
     public form = {};
+    public users;
     public login_error:Boolean = false;
 
     constructor(private router: Router, private appService: AppService) { }
@@ -31,5 +32,18 @@ export class LoginComponent {
            }
         );
     }
+
+  getUsers() {
+    this.appService.getUsers()
+      .subscribe(
+        data => { this.users = data},
+       error => {
+         console.error("Error fetching users in!");
+         console.log(error);
+         this.login_error = true;
+         return Observable.throw(error);
+       }
+      );
+  }
 
 }
