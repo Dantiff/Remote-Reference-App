@@ -23,16 +23,28 @@ class NgView(View):
 		return HttpResponse("OK!")
 
 
+class NgTemplateView(View):
+	"""To render template view"""
+	def get(self, request):
+		return render(request, 'template.html', {"user": request.user})
+
 class NgHomeView(View):
 	"""To render home view"""
 	def get(self, request):
 		return render(request, 'home.html', {"user": request.user})
 
 
-class NgDjView(View):
-	"""View to render django template to angular"""
+class NgLoginView(View):
+	"""To render login view"""
 	def get(self, request):
-		return render(request, 'template.html', {"user": request.user, "django_variable": "I cracked this"})
+		return render(request, 'login.html', {"user": request.user})
+
+
+class NgRegisterView(View):
+	"""To render register view"""
+	def get(self, request):
+		return render(request, 'register.html', {"user": request.user})
+
 
 
 class UserViewSet(viewsets.ModelViewSet):

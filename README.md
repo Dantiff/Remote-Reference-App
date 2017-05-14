@@ -67,7 +67,12 @@ make run
 ```
 
 
+### PS*
+There some setup you probably need to ensure are correct to ensure your app works. Some of these include:
 
+   * Ensure the `SECRET_KEY` in your `settings.py` point to the correct key.
+   * Ensure you have the correct settings for `DATABASES`, `WSGI_APPLICATION`, and `TIME_ZONE` in `settings.py`.
+   * Ensure the folder for the Django REST framework sits on the root of the applications as follows: `./rest_framework`.
 
 
 

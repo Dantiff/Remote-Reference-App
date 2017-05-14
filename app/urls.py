@@ -21,8 +21,10 @@ from core.views import *
 
 ngurls = [
     url(r'^$', NgView.as_view(), name='ngViews'),
+    url(r'^template/$', NgTemplateView.as_view(), name='ngTemplate'),
     url(r'^home/$', NgHomeView.as_view(), name='ngHome'),
-    url(r'^dj/$', NgDjView.as_view(), name='ngDj'),
+    url(r'^login/$', NgLoginView.as_view(), name='ngLogin'),
+    url(r'^register/$', NgRegisterView.as_view(), name='ngRegister'),
 ]
 
 urlpatterns = [
