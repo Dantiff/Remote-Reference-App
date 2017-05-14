@@ -1,8 +1,14 @@
-import { Component } from '@angular/core';
-
+import {Component} from "@angular/core";
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 @Component({
-    templateUrl: '/ngViews/register/'
+  templateUrl: '/ngViews/register/',
+    directives: [ROUTER_DIRECTIVES]
 })
 export class RegisterComponent {
-    sorry="Sorry, You are not logged in";
+    constructor(private router: Router) { }
+
+    register() {
+        console.log("Registering!");
+    }
+
 }
