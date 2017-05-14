@@ -7,7 +7,7 @@
   // map tells the System loader where to look for things
   var map = {
     'app':                        'app', // 'dist',
-
+    'angular2-flash-messages':    'node_modules/angular2-flash-messages',
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs':                       'node_modules/rxjs'
@@ -18,6 +18,7 @@
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+    "angular2-flash-messages": { main: 'index.js', defaultExtension: 'js' },
   };
 
   var ngPackageNames = [

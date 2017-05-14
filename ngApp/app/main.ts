@@ -7,6 +7,7 @@ import {enableProdMode} from '@angular/core';
 import {AppService} from './services/service';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 enableProdMode();
 bootstrap(AppComponent, [
