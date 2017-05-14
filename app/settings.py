@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [u'bivestorg.pythonanywhere.com']
 
+site_id = 1
 
 # Application definition
 

@@ -21,6 +21,7 @@
 			    </ul>
     			<br>
     			<form action="#" method="post">
+    			    {{ csrf_input }}
                     <div *ngIf="login_error" class="form-errors">Username/email and password do not match. Please try the correct credentials</div>
 					<input name="email" [(ngModel)]="form.username" type="email" class="form-control" id="email" placeholder="Username/Email">
 					<input name="password" [(ngModel)]="form.password" type="password" class="form-control" id="password" placeholder="**********">
