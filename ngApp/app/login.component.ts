@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { AppService } from './services/service';
+import {Observable} from "rxjs/Rx";
 
 @Component({
   templateUrl: '/ngViews/login/',
@@ -8,15 +9,27 @@ import { AppService } from './services/service';
 })
 export class LoginComponent {
 
-    public form;
+    public form = {};
     public login_error:Boolean = false;
 
     constructor(private router: Router, private appService: AppService) { }
 
     login(form) {
         console.log("Loggin in!");
+        console.log(form);
         this.appService.login(form).subscribe(
-          err => { this.login_error = true }
+           data => {
+             // redirect to home
+             this.router.navigate(['/home']);
+             return true;
+           },
+           error => {
+             console.error("Error logging in!");
+             console.log(error);
+             this.login_error = true;
+             return Observable.throw(error);
+           }
         );
     }
+
 }

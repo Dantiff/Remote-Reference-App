@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 enableProdMode();
 bootstrap(AppComponent, [
   appRouterProviders,
-  HTTP_PROVIDERS
+  HTTP_PROVIDERS,
+  AppService
 ])
 .catch(err => console.error(err));
