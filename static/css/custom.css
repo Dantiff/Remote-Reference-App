@@ -272,7 +272,9 @@ footer {
         background: #101010;
         padding: 0;
     }
-
+    .top-margin {
+        margin-bottom: 7em;
+    }
 }
 
 

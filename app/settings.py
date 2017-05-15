@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [u'bivestorg.pythonanywhere.com']
 SITE_ID = 1
 
 #Set JWT tokens to be used
-REST_USE_JWT = True
+REST_USE_JWT = False
 
 # Application definition
 
