@@ -19,7 +19,7 @@ export class AppService {
     let options = new ExRequestOptions();
     options.appendHeaders('Content-Type', 'application/json');
     let body = JSON.stringify(creds);
-    return this.http.post('/api-auth/login/', body, options).map((res: Response) => res.json());
+    return this.http.post('/api-auth/login/', body, options);
   }
 
   //Register user

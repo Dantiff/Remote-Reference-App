@@ -7,6 +7,7 @@ dev:
 	pip install djangorestframework
 	pip install markdown
 	pip install django-filter
+	pip install django-rest-auth
 
 # Runs development server.
 run:
