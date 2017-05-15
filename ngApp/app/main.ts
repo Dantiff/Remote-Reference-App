@@ -6,6 +6,7 @@ import { HTTP_PROVIDERS,  RequestOptions } from "@angular/http";
 import { enableProdMode } from '@angular/core';
 import { AuthService } from './services/authService';
 import { AuthGuard } from './services/authGuard';
+import { BroadcastService } from './services/broadcastService';
 import {ExRequestOptions} from './services/exRequestOptions';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   AuthService,
   AuthGuard,
+  BroadcastService,
   {provide:RequestOptions, useClass: ExRequestOptions}
 ])
 .catch(err => console.error(err));

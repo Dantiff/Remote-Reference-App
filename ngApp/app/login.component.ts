@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { AuthService } from './services/authService';
+import { BroadcastService } from './services/broadcastService';
 import {Observable} from "rxjs/Rx";
 
 @Component({
@@ -15,7 +16,7 @@ export class LoginComponent {
     public pass_error = "";
     public non_field_errors = "";
 
-    constructor(private router: Router, private auth: AuthService) { }
+    constructor(private router: Router, private auth: AuthService, private broadcastService: BroadcastService) { }
 
     login(form) {
         console.log("Loggin in!");
@@ -24,13 +25,13 @@ export class LoginComponent {
         this.auth.login(form).subscribe(
            data => {
 
-             console.error("Login Success!");
+             console.log("Login Success!");
 
              //Save token to local storage
              let key_object = JSON.parse(data._body);
              localStorage.setItem('id_token', key_object.key);
 
-             console.log(localStorage.getItem('id_token'));
+             this.broadcastService.broadcast('user-authenticated', "User loggin success");
 
              // redirect to home
              this.router.navigate(['/home']);
@@ -40,7 +41,6 @@ export class LoginComponent {
              this.login_error = true;
 
              console.error("Error logging in!");
-             console.log(error);
 
              //Retrieve error
              let error_object = JSON.parse(error._body);

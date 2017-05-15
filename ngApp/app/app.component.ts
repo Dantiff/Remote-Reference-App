@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { AuthService } from './services/authService';
+import { BroadcastService } from './services/broadcastService';
 
 @Component({
     selector: 'my-app',
@@ -11,11 +12,15 @@ export class AppComponent {
 
     public isAuth:boolean = false;
 
-    constructor(private router: Router, private auth: AuthService) { }
+    constructor(private router: Router, private auth: AuthService, private broadcastService: BroadcastService) { }
 
 
     ngOnInit(){
         this.checkAuth();
+
+        this.broadcastService.on('user-authenticated', (message) => this.checkAuth(message));
+
+        this.broadcastService.on('user-unAuthenticated', (message) => this.checkAuth(message));
     };
 
     checkAuth() {
@@ -42,7 +47,7 @@ export class AppComponent {
              //Save token to local storage
              localStorage.removeItem('id_token');
 
-             console.log(localStorage.getItem('id_token'));
+             this.broadcastService.broadcast('user-unAuthenticated', "User logged out");
 
              // redirect to home
              this.router.navigate(['/home']);
