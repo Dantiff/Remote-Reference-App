@@ -21,6 +21,10 @@ export class LoginComponent {
 
         this.appService.login(form).subscribe(
            data => {
+
+             console.error("Success!");
+             console.log(data);
+
              // redirect to home
              this.router.navigate(['/home']);
              return true;

@@ -19,7 +19,7 @@ export class AppService {
     let options = new ExRequestOptions();
     options.appendHeaders('Content-Type', 'application/json');
     let body = JSON.stringify(creds);
-    return this.http.post('/api-auth/login/', body, options);
+    return this.http.post('/rest-auth/login/', body, options);
   }
 
   //Register user
@@ -27,7 +27,7 @@ export class AppService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let body = JSON.stringify(creds);
-    return this.http.post('/api-auth/register/', body, headers).map((res: Response) => res.json());
+    return this.http.post('/rest-auth/registration/', body, headers).map((res: Response) => res.json());
   }
 
 }

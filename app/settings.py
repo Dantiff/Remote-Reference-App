@@ -27,7 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = [u'bivestorg.pythonanywhere.com']
 
-site_id = 1
+#Set site ID
+SITE_ID = 1
+
+#Set JWT tokens to be used
+REST_USE_JWT = False
 
 # Application definition
 
