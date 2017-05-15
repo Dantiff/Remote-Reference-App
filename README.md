@@ -72,7 +72,7 @@ There some setup you probably need to ensure are correct to ensure your app work
 
    * Ensure the `SECRET_KEY` in your `settings.py` point to the correct key.
    * Ensure you have the correct settings for `DATABASES`, `WSGI_APPLICATION`, and `TIME_ZONE` in `settings.py`.
-   * Ensure the folder for the Django REST framework sits on the root of the applications as follows: `./rest_framework`.
+   * Ensure the folder for the Django REST framework sits on the root of the applications as follows: `./rest_framework`, `./rest_auth`.
 
 
 
