@@ -2,36 +2,35 @@
 <!-- =========================
     NAV SECTION
 ============================== -->
-<div id="header">
-	<nav id="nav">
-		<ul>
-			<li class="current"><a routerLink="/home" routerLinkActive="active">Home</a></li>
-			<li>
-				<a href="#">Dropdown</a>
-				<ul>
-					<li><a href="#">Lorem dolor</a></li>
-					<li><a href="#">Magna phasellus</a></li>
-					<li><a href="#">Etiam sed tempus</a></li>
-					<li>
-						<a href="#">Submenu</a>
-						<ul>
-							<li><a href="#">Lorem dolor</a></li>
-							<li><a href="#">Phasellus magna</a></li>
-							<li><a href="#">Magna phasellus</a></li>
-							<li><a href="#">Etiam nisl</a></li>
-							<li><a href="#">Veroeros feugiat</a></li>
-						</ul>
-					</li>
-					<li><a href="#">Veroeros feugiat</a></li>
-				</ul>
-			</li>
-			<li><a href="left-sidebar.html">Left Sidebar</a></li>
-			<li><a href="right-sidebar.html">Right Sidebar</a></li>
-			<li><a routerLink="/register" routerLinkActive="active">Register</a></li>
-			<li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-		</ul>
-	</nav>
+
+<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	<div class="container" id="nav">
+
+		<!-- navbar header -->
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+		</div>
+
+		<div class="collapse navbar-collapse">
+
+			<ul class="nav navbar-nav">
+    			<li class="current"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    			<li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
+    			<li><a routerLink="/customers" routerLinkActive="active">Downloads</a></li>
+    			<li *ngIf="!isAuth" ><a routerLink="/register" routerLinkActive="active">Register</a></li>
+    			<li *ngIf="!isAuth" ><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    			<li *ngIf="isAuth" ><a (click)="logout();" routerLinkActive="active">Logout</a></li>
+			</ul>
+
+		</div>
+
+	</div>
 </div>
+<div class="clearfix"></div>
 
 <!-- =========================
     INCLUDE FLASH MESSAGES

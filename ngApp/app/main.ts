@@ -4,7 +4,8 @@ import { AppComponent } from './app.component';
 import { appRouterProviders } from "./app.route";
 import { HTTP_PROVIDERS,  RequestOptions } from "@angular/http";
 import { enableProdMode } from '@angular/core';
-import { AppService } from './services/service';
+import { AuthService } from './services/authService';
+import { AuthGuard } from './services/authGuard';
 import {ExRequestOptions} from './services/exRequestOptions';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +15,8 @@ enableProdMode();
 bootstrap(AppComponent, [
   appRouterProviders,
   HTTP_PROVIDERS,
-  AppService,
+  AuthService,
+  AuthGuard,
   {provide:RequestOptions, useClass: ExRequestOptions}
 ])
 .catch(err => console.error(err));

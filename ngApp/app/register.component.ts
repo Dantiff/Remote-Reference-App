@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
-import { AppService } from './services/service';
+import { AuthService } from './services/authService';
 import {Observable} from "rxjs/Rx";
 
 @Component({
@@ -12,12 +12,12 @@ export class RegisterComponent {
     public form = {};
     public reg_error:Boolean = false;
 
-    constructor(private router: Router, private appService: AppService) { }
+    constructor(private router: Router, private auth: AuthService) { }
 
     register(form) {
         console.log("Refistering!");
         console.log(form);
-        this.appService.register(form).subscribe(
+        this.auth.register(form).subscribe(
            data => {
              // redirect to home
              this.router.navigate(['/login']);

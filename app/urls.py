@@ -25,6 +25,7 @@ ngurls = [
     url(r'^home/$', NgHomeView.as_view(), name='ngHome'),
     url(r'^login/$', NgLoginView.as_view(), name='ngLogin'),
     url(r'^register/$', NgRegisterView.as_view(), name='ngRegister'),
+    url(r'^customers/$', NgCustomersView.as_view(), name='ngCustomers'),
 ]
 
 urlpatterns = [

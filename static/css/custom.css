@@ -211,35 +211,81 @@ footer {
     Header and Nav section
 -----------------------------------------*/
 
-#header {
-    text-align: center;
-    padding: 3em 0 0 0;
-    background-color: #fff;
-    background-image: url("images/bg02.png"), url("images/bg02.png"), url("images/bg01.png");
-    background-position: top left,					top left,					top left;
-    background-size: 100% 6em,					100% 6em,					auto;
-    background-repeat: no-repeat,					no-repeat,					repeat;
+.custom-navbar {
+    margin-bottom: 0;
+    background-color: #101010;
+}
+
+.custom-navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 3rem;
+    line-height: 40px;
+}
+
+.custom-navbar .nav li a {
+    color: #ddd;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    line-height: 40px;
+    transition: all 0.4s ease-in-out;
+}
+
+.custom-navbar .nav li a:hover {
+    background: transparent;
+    color: #66ccff;
+}
+
+.custom-navbar .navbar-nav > li > a:hover,
+.custom-navbar .navbar-nav > li > a:focus {
+  background-color: transparent;
+}
+
+.custom-navbar .nav li.active > a {
+    background-color: transparent;
+    color: #66ccff;
+}
+
+.custom-navbar .navbar-toggle {
+    border: none;
+    padding-top: 10px;
+}
+
+.custom-navbar .navbar-toggle {
+    background-color: transparent;
+}
+
+.custom-navbar .navbar-toggle .icon-bar {
+    background: #ffffff;
+    border-color: transparent;
+}
+
+@media(min-width:768px) {
+    .custom-navbar {
+        padding: 20px 0;
+        border-bottom: 0;
+        background: 0 0;
+    }
+    .custom-navbar.top-nav-collapse {
+        background: #101010;
+        padding: 0;
     }
 
-#header h1 {
-    padding: 0 0 2.75em 0;
-    margin: 0;
 }
 
-#header h1 a {
-    font-size: 1.5em;
-    letter-spacing: -0.025em;
-    border: 0;
-}
+
 
 #nav {
     cursor: default;
     background-color: #333;
-    background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-    background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-    background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../images/bg01.png");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../images/bg01.png");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../images/bg01.png");
+    background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("../images/bg01.png");
     padding: 0;
+    width: 100% !important;
 }
 
 #nav:after {
@@ -248,109 +294,10 @@ footer {
     width: 100%;
     height: 0.75em;
     background-color: #37c0fb;
-    background-image: url("images/bg01.png");
+    background-image: url("../images/bg01.png");
 }
 
-#nav > ul {
-    margin: 0;
-}
 
-#nav > ul > li {
-    position: relative;
-    display: inline-block;
-    margin-left: 1em;
-}
-
-#nav > ul > li a {
-    color: #c0c0c0;
-    text-decoration: none;
-    border: 0;
-    display: block;
-    padding: 1.5em 0.5em 1.35em 0.5em;
-}
-
-#nav > ul > li:first-child {
-    margin-left: 0;
-}
-
-#nav > ul > li:hover a {
-    color: #fff;
-}
-
-#nav > ul > li.current {
-    font-weight: 600;
-}
-
-#nav > ul > li.current:before {
-    -moz-transform: rotateZ(45deg);
-    -webkit-transform: rotateZ(45deg);
-    -ms-transform: rotateZ(45deg);
-    transform: rotateZ(45deg);
-    width: 0.75em;
-    height: 0.75em;
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: -0.5em;
-    left: 50%;
-    margin-left: -0.375em;
-    background-color: #37c0fb;
-    background-image: url("images/bg01.png");
-}
-
-#nav > ul > li.current a {
-    color: #fff;
-}
-
-#nav > ul > li.active a {
-    color: #fff;
-}
-
-#nav > ul > li.active.current:before {
-    opacity: 0;
-}
-
-#nav > ul > li > ul {
-    display: none;
-}
-
-/* Dropotron */
-
-.dropotron {
-    background-color: #333;
-    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("images/bg01.png");
-    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("images/bg01.png");
-    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("images/bg01.png");
-    background-image: linear-gradient(top, rgba(0,0,0,0.3), rgba(0,0,0,0)), url("images/bg01.png");
-    border-radius: 5px;
-    color: #fff;
-    min-width: 10em;
-    padding: 1em 0;
-    text-align: center;
-    box-shadow: 0 1em 1em 0 rgba(0, 0, 0, 0.5);
-}
-
-.dropotron > li {
-    line-height: 2em;
-    padding: 0 1.1em 0 1em;
-}
-
-.dropotron > li > a {
-    color: #c0c0c0;
-    text-decoration: none;
-    border: 0;
-}
-
-.dropotron > li.active > a, .dropotron > li:hover > a {
-    color: #fff;
-}
-
-.dropotron.level-0 {
-    border-radius: 0 0 5px 5px;
-    font-size: 0.9em;
-    padding-top: 0;
-    margin-top: -1px;
-}
 
 /*---------------------------------------
     Home section
@@ -501,3 +448,47 @@ footer {
 }
 
 
+
+/*---------------------------------------
+   Responsive styles
+-----------------------------------------*/
+@media (max-width: 980px) {
+
+  p {font-size: 13px;}
+
+  .custom-navbar .navbar-brand {
+    font-size: 2rem;
+  }
+
+  .custom-navbar .nav li a {
+    font-size: 11px;
+	line-height: 20px;
+  }
+
+  #intro { height: 65vh; }
+
+}
+
+@media (max-width: 768px) {
+
+  .custom-navbar .navbar-brand {
+    line-height: 20px;
+  }
+
+  #register form, #login form {
+    padding-top: 32px;
+  }
+
+  .nav-tabs > li > a {
+    font-size: 13px;
+  }
+
+}
+
+@media (max-width: 760px) {
+
+  #intro {
+    height: 100vh;
+  }
+
+}

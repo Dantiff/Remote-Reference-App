@@ -46,6 +46,13 @@ class NgRegisterView(View):
 		return render(request, 'register.html', {"user": request.user})
 
 
+class NgCustomersView(View):
+	"""To render customers view"""
+	def get(self, request):
+		return render(request, 'customers.html', {"user": request.user})
+
+
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
