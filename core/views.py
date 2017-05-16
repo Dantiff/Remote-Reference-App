@@ -4,11 +4,12 @@ from django.shortcuts import render
 from django.views.generic import View, TemplateView
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from core.serializers import UserSerializer, GroupSerializer
+from core.serializers import *
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from core.models import *
 
 # Create your views here.
 
@@ -61,13 +62,23 @@ class UserCreate(APIView):
     """
     def post(self, request, format='json'):
         serializer = UserSerializer(data=request.data)
-        if serializer.is_valid():
+        prof_serializer = ProfileSerializer(data=request.data)
+        if serializer.is_valid() and prof_serializer.is_valid():
             user = serializer.save()
             if user:
-                token = Token.objects.create(user=user)
-                json = serializer.data
-                json['token'] = token.key
-                return Response(json, status=status.HTTP_201_CREATED)
+                profile = Profile(
+                    user=user,
+                    phone=request.data.get("phone"),
+                    national_id=request.data.get("national_id")
+                    )
+                profile.save()
+                if profile:
+                    token = Token.objects.create(user=user)
+                    json = serializer.data
+                    json['token'] = token.key
+                    json['profile'] = prof_serializer.data
+
+                    return Response(json, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

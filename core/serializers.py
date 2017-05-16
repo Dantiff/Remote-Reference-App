@@ -17,7 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'], validated_data['email'],
-             validated_data['password'])
+               validated_data['password'])
         return user
 
     class Meta:
@@ -27,19 +27,17 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     phone = serializers.CharField(
-            max_length=32
-            )
-    national_id = serializers.CharField(
+            required=True,
             max_length=32
             )
 
     def create(self, validated_data):
-        profile = Profile.objects.create_profile(validated_data['phone'], validated_data['national_id'])
+        profile = Profile.objects.create_user_profile(validated_data['phone'], validated_data['national_id'])
         return profile
 
     class Meta:
         model = Profile
-        fields = ('id', 'phone', 'national_id')
+        fields = ('id', 'phone')
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
