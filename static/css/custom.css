@@ -381,7 +381,7 @@ footer {
   height: 40px;
 }
 
-#login input[type="submit"] {
+#login button {
   background: #f2545f;
   border-radius: 100px;
   border: none;
@@ -393,7 +393,7 @@ footer {
   font-style: italic;
 }
 
-#login input[type="submit"]:hover {
+#login button:hover {
   background: #ffffff;
   color: #222;
 }

@@ -1,7 +1,9 @@
 # Remote Reference App
 
-This is a web app that allows remote users to look up debt status. The app assumes that there are remote users that need to periodically check the debt status of certain customers and at times download an excel report of customer information.
 Please find the live app working <strong><a href="http://bivestorg.pythonanywhere.com/">Here</a></strong>
+
+This is a web app that allows remote users to look up debt status. The app assumes that there are remote users that need to periodically check the debt status of certain customers and at times download an excel report of customer information.
+
 
 ### Features
 

@@ -23,11 +23,11 @@
     			<form action="#" method="post">
     			    {{ csrf_input }}
                     <div *ngIf="login_error" class="form-errors"> {{ non_field_errors }} </div>
-					<input name="email" [(ngModel)]="form.username" type="email" class="form-control" id="email" placeholder="Username/Email">
+					<input name="username" [(ngModel)]="form.username" type="text" class="form-control" id="username" placeholder="Username">
 					<div *ngIf="login_error" class="form-errors"> {{ pass_error }} </div>
 					<input name="password" [(ngModel)]="form.password" type="password" class="form-control" id="password" placeholder="**********">
     				<div class="col-md-offset-6 col-md-6 col-sm-offset-1 col-sm-10">
-    					<input name="submit" type="submit" class="form-control" id="submit" value="LOGIN &raquo;" (click)="login(form);">
+    					<button class="col-sm-12" (click)="login(form);"> LOGIN <i [ngClass]="{'fa-spinner fa-spin': submitting, 'fa-long-arrow-right': !submitting}" class="fa" ></i></button>
     				</div>
     			</form>
 		    </div>

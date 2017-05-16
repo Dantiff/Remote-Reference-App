@@ -15,17 +15,18 @@ export class LoginComponent {
     public login_error:Boolean = false;
     public pass_error = "";
     public non_field_errors = "";
+    public submitting:Boolean = false;
 
     constructor(private router: Router, private auth: AuthService, private broadcastService: BroadcastService) { }
 
     login(form) {
-        console.log("Loggin in!");
-        console.log(form);
+        this.submitting = true;
 
         this.auth.login(form).subscribe(
            data => {
 
              console.log("Login Success!");
+             this.submitting = false;
 
              //Save token to local storage
              let key_object = JSON.parse(data._body);
@@ -41,6 +42,7 @@ export class LoginComponent {
              this.login_error = true;
 
              console.error("Error logging in!");
+             this.submitting = false;
 
              //Retrieve error
              let error_object = JSON.parse(error._body);
