@@ -35,7 +35,7 @@ export class LoginComponent {
              this.broadcastService.broadcast('user-authenticated', "User loggin success");
 
              // redirect to home
-             this.router.navigate(['/home']);
+             this.router.navigate(['/customers']);
              return true;
            },
            error => {
@@ -44,7 +44,7 @@ export class LoginComponent {
              console.error("Error logging in!");
              this.submitting = false;
 
-             //Retrieve error
+             //Retrieve error object
              let error_object = JSON.parse(error._body);
              console.log(error_object);
 

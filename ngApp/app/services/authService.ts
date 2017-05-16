@@ -24,10 +24,10 @@ export class AuthService {
 
   //Register user
   register(creds) {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
+    let options = new ExRequestOptions();
+    options.appendHeaders('Content-Type', 'application/json');
     let body = JSON.stringify(creds);
-    return this.http.post('/rest-auth/registration/', body, headers).map((res: Response) => res.json());
+    return this.http.post('/api/users/register/', body, options);
   }
 
   loggedIn() {

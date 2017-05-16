@@ -22,14 +22,18 @@
     				    <li><a routerLink="/register" class="fa fa-registered fa-2x fadeInUp" data-wow-delay="1s"></a></li>
     			    </ul>
     			</div>
-                <div *ngIf="reg_error" class="form-errors">Error registering. Please try the again.</div>
+
     		    <div class="highlight wow fadeInRight col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1.5s">
+    		        <div *ngIf="reg_error" class="form-errors"> {{ error_object.username}} </div>
 					<input name="username" [(ngModel)]="form.username" type="text" class="form-control" id="username" placeholder="Username">
+    		        <div *ngIf="reg_error" class="form-errors"> {{ error_object.email}} </div>
 					<input name="email" [(ngModel)]="form.email" type="email" class="form-control" id="email" placeholder="john@example.com">
+    		        <div *ngIf="reg_error" class="form-errors"> {{ error_object.phone}} </div>
 					<input name="phone" [(ngModel)]="form.phone" type="telephone" class="form-control" id="phone" placeholder="+254 7** *** ***">
     			</div>
 
     		    <div class="highlight wow fadeInRight col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1s">
+    		        <div *ngIf="reg_error" class="form-errors"> {{ pass_error}} {{ error_object.password}} </div>
 					<input name="password1" [(ngModel)]="form.password1" type="password" class="form-control" id="password1" placeholder="**********">
 					<input name="password2" [(ngModel)]="form.password2" type="password" class="form-control" id="password2" placeholder="Confirm Password">
     				<div class="col-md-offset-3 col-md-9 col-sm-offset-1 col-sm-10">
