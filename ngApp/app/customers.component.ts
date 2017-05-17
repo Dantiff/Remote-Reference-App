@@ -14,6 +14,8 @@ export class CustomersComponent {
     public form = { };
     public search_error:Boolean = false;
     public search_ID = true;
+    public search_results:Boolean = false;
+    public debtor = {};
 
     constructor(private router: Router, private auth: AuthService,  private ref: ReferenceService, private broadcastService: BroadcastService) { }
 
@@ -33,6 +35,8 @@ export class CustomersComponent {
              this.submitting = false;
 
              //Update search data
+             this.debtor = JSON.parse(data);
+             this.search_results = true;
 
 
              this.broadcastService.broadcast('search-complete', "Search success");
@@ -44,6 +48,8 @@ export class CustomersComponent {
              console.error("Error logging in!");
              this.submitting = false;
              this.search_error = true;
+             this.debtor = {};
+             this.search_results = true;
 
              //Retrieve error object
 

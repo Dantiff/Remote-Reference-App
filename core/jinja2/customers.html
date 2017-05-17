@@ -45,12 +45,43 @@
 			</div>
 
 		    <div class="highlight wow fadeInRight col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1s">
-				<ul class="home-icon">
-				    <li><a routerLink="/customers" class="fa fa-download fa-2x fadeInUp" data-wow-delay="1s"></a></li>
-			    </ul>
-				<span class="external-link"><h3>DownLoad Debtors</h3><a class="link" routerLink="/customers" routerLinkActive="active"><sup class="fa fa-external-link"></sup></a></span>
-				<p>The app provides a tabular view, search, and download of all data showing the current debt status of the various customers.  </p>
-				<p> Already have an account? <a class="link" routerLink="/login" routerLinkActive="active">Login <sup class="fa fa-external-link"></sup></a>.</p>
+				<div class="search-results-tab  col-md-12  col-sm-10">
+				    <span > Customer Debtor Information </span>
+				</div>
+				<div *ngIf="!search_results" class="search-results-box  col-md-12  col-sm-12">
+				    <span *ngIf="!submitting">Lets see the debt status of your customer </span>
+				    <span *ngIf="submitting"><i class="fa fa-spinner fa-spin fa-2x" ></i> </span>
+				</div>
+
+				<div *ngIf="search_results" class="search-results  col-md-12  col-sm-12">
+				    <span *ngIf="search_error" class="form-errors">
+    				    <span *ngIf="!submitting">Customer not found. Please check details and submit again. </span>
+    				    <span *ngIf="submitting"><i class="fa fa-spinner fa-spin fa-2x" ></i> </span>
+				    </span>
+				    <span *ngIf="!search_error">
+				        <table>
+				            <thead>
+				                <th colspan="2" class="results-head">Customer found:</th>
+				            </thead>
+				            <tbody>
+				                <tr>
+				                    <td>Customer name: </td>
+				                    <td> {{ debtor.username}} </td>
+				                </tr>
+				                <tr>
+				                    <td> Debt status: </td>
+				                    <td> {{ debtor.debt_status}} </td>
+				                </tr>
+				                <tr>
+				                    <td>Debt Amount: </td>
+				                    <td class="results-data"> {{ debtor.amount}} </td>
+				                </tr>
+				            </tbody>
+				        </table>
+				    </span>
+				</div>
+
+				<p> Have enough permission? <a class="link" routerLink="/downloads" routerLinkActive="active">Download customer data <sup class="fa fa-external-link"></sup></a>.</p>
 			</div>
 
 		</div>
