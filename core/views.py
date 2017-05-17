@@ -56,6 +56,13 @@ class NgCustomersView(View):
 	def get(self, request):
 		return render(request, 'customers.html', {"user": request.user})
 
+class NgDownloadsView(View):
+	"""To render customers view"""
+	def get(self, request):
+		return render(request, 'downloads.html', {"user": request.user})
+
+
+
 class UserCreate(APIView):
     """
     Creates the user.

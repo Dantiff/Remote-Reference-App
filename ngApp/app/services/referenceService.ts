@@ -19,7 +19,24 @@ export class ReferenceService {
     let options = new ExRequestOptions();
     options.appendHeaders('Content-Type', 'application/json');
     let body = JSON.stringify(data);
-    return this.http.post('/customers/details/', body, options);
+    return this.http.post('/api/customers/details/', body, options);
   }
+
+  //Fetch all data for debtors
+  fetch_debtors(data) {
+    let options = new ExRequestOptions();
+    options.appendHeaders('Content-Type', 'application/json');
+    let body = JSON.stringify(data);
+    return this.http.post('/api/customers/fetch_debtors/', body, options);
+  }
+
+  //Download data for debtors
+  download_debtors(data) {
+    let options = new ExRequestOptions();
+    options.appendHeaders('Content-Type', 'application/json');
+    let body = JSON.stringify(data);
+    return this.http.post('/api/customers/download_debtors/', body, options);
+  }
+
 
 }

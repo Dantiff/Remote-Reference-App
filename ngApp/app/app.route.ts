@@ -5,6 +5,7 @@ import {HomeComponent} from "./home.component";
 import {LoginComponent} from "./login.component";
 import {RegisterComponent} from "./register.component";
 import {CustomersComponent} from "./customers.component";
+import {DownloadsComponent} from "./downloads.component";
 
 import { AuthGuard } from './services/authGuard';
 
@@ -30,6 +31,11 @@ const routes: RouterConfig = [
     {
         path: 'customers',
         component: CustomersComponent,
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'downloads',
+        component: DownloadsComponent,
         canActivate: [AuthGuard]
     },
 ];

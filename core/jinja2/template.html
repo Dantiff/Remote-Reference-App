@@ -20,7 +20,7 @@
 			<ul class="nav navbar-nav">
     			<li class="current"><a routerLink="/home" routerLinkActive="active">Home</a></li>
     			<li><a routerLink="/customers" routerLinkActive="active">Customers</a></li>
-    			<li><a routerLink="/customers" routerLinkActive="active">Downloads</a></li>
+    			<li><a routerLink="/downloads" routerLinkActive="active">Downloads</a></li>
     			<li *ngIf="!isAuth" ><a routerLink="/register" routerLinkActive="active">Register</a></li>
     			<li *ngIf="!isAuth" ><a routerLink="/login" routerLinkActive="active">Login</a></li>
     			<li *ngIf="isAuth" ><a (click)="logout();" routerLinkActive="active">Logout</a></li>
