@@ -37,9 +37,9 @@
 			            <tbody *ngIf="!submitting">
 			                <span *ngIf="!no_data" >
     			                <tr *ngFor="let debtor of debtors">
-    			                    <td> {{ debtor.customer.username}} </td>
-    			                    <td> {{ debtor.debtor.username}} </td>
-    			                    <td> {{ debtor.debt_status}} </td>
+    			                    <td class="results-data"> {{ debtor.customer.username}} </td>
+    			                    <td class="results-data"> {{ debtor.debtor.username}} </td>
+    			                    <td class="results-data"> {{ debtor.debt_status}} </td>
     			                    <td class="results-data"> {{ debtor.amount}} </td>
     			                </tr>
 			                </span>
