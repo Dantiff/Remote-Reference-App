@@ -40,6 +40,11 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ('id', 'phone')
 
 
+class DueListingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DueListing
+        fields = ('id', 'customer', 'debtor', 'debt_status', 'amount')
+
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group

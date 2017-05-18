@@ -4,12 +4,12 @@ from django.shortcuts import render
 from django.views.generic import View, TemplateView
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from core.serializers import *
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from core.models import *
+from core.serializers import *
 
 # Create your views here.
 
@@ -88,6 +88,46 @@ class UserCreate(APIView):
                     return Response(json, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+class CustomerDetails(APIView):
+    """
+    Fetch customer debt status
+    """
+    def get(self, request, username, phone, format='json'):
+
+        try:
+            user = User.objects.get(username=username)
+        except User.DoesNotExist:
+            return Response(dict(user="Customer not found. Please check details and submit again. "), status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            due_listing = DueListing.objects.get(customer=user)
+        except DueListing.DoesNotExist:
+            return Response(dict(due_listing="Customer selected has no due listings. "), status=status.HTTP_400_BAD_REQUEST)
+
+        serializer = DueListingSerializer(due_listing)
+        return JsonResponse(serializer.data)
+
+
+
+class DebtorsDetails(APIView):
+    """
+    Fetch customer debt status
+    """
+    def get(self, request, format='json'):
+
+        if not DueListing.objects.filter().count() > 0:
+            return Response(dict(due_listing="No customers with due listings "), status=status.HTTP_400_BAD_REQUEST)
+
+        due_listing = DueListing.objects.all()
+        serializer = DueListingSerializer(due_listing)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+
 
 
 class UserViewSet(viewsets.ModelViewSet):

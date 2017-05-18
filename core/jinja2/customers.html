@@ -28,13 +28,13 @@
 					<input name="username" [(ngModel)]="form.username" type="text" class="form-control" id="username" placeholder="Username">
 					<div class="search-radio">
                       <label class="radio inline float-left"  (click)="toogleSearch(form);">
-                          <input type="radio" name="search_key" [(ngModel)]="form.search_key" value="ID" checked>
-                          <span> National ID </span>
-                       </label>
-                      <label class="radio inline float-right"  (click)="toogleSearch(form);">
-                          <input type="radio" name="search_key" [(ngModel)]="form.search_key"  value="phone">
+                          <input type="radio" name="search_key" [(ngModel)]="form.search_key"  value="phone"checked>
                           <span> Phone Number </span>
                       </label>
+                      <label class="radio inline float-right"  (click)="toogleSearch(form);">
+                          <input type="radio" name="search_key" [(ngModel)]="form.search_key" value="national_id">
+                          <span> National ID </span>
+                       </label>
                     </div>
 					<input *ngIf="search_ID" name="ID" [(ngModel)]="form.ID" type="number" class="form-control" id="ID" placeholder="Customer National ID">
 					<input *ngIf="!search_ID" name="phone" [(ngModel)]="form.phone" type="number" class="form-control" id="ID" placeholder="Customer Phone ">
@@ -55,7 +55,7 @@
 
 				<div *ngIf="search_results" class="search-results  col-md-12  col-sm-12">
 				    <span *ngIf="search_error" class="form-errors">
-    				    <span *ngIf="!submitting">Customer not found. Please check details and submit again. </span>
+    				    <span *ngIf="!submitting"> {{ error_object.user }} {{ error_object.due_listing }}  </span>
     				    <span *ngIf="submitting"><i class="fa fa-spinner fa-spin fa-2x" ></i> </span>
 				    </span>
 				    <span *ngIf="!search_error">
@@ -66,7 +66,11 @@
 				            <tbody>
 				                <tr>
 				                    <td>Customer name: </td>
-				                    <td> {{ debtor.username}} </td>
+				                    <td> {{ debtor.customer.username}} </td>
+				                </tr>
+				                <tr>
+				                    <td>Debtor name: </td>
+				                    <td> {{ debtor.debtor.username}} </td>
 				                </tr>
 				                <tr>
 				                    <td> Debt status: </td>

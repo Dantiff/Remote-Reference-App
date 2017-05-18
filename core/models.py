@@ -11,10 +11,26 @@ class Profile(models.Model):
     class Meta:
         db_table = 'tbl_profiles'
 
-
-    def remove(self):
-        self.remove_date = timezone.now()
-        self.save()
-
     def __str__(self):
         return self.acc_name
+
+
+class DueListing(models.Model):
+
+    DEBT_CHOICES = (
+        ('full', 'Fully Paid'),
+        ('partial', 'Partially Paid'),
+        ('none', 'Not Paid'),
+    )
+    customer = models.OneToOneField(User, related_name='due_listing_customer', on_delete=models.CASCADE)
+    debtor = models.OneToOneField(User, related_name='due_listing_debtor', on_delete=models.CASCADE)
+    amount = models.CharField(max_length=50, blank=True)
+    debt_status = models.CharField(max_length=50, default='none', choices=DEBT_CHOICES)
+
+    class Meta:
+        db_table = 'tbl_due_listing'
+        ordering = ('amount',)
+
+
+    def __str__(self):
+        return self.customer

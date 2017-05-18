@@ -33,6 +33,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^api/users/register/$', UserCreate.as_view(), name='user-create'),
+    url(r'^api/customers/(?P<username>[^/]+)/(?P<phone>[^/]+)/$', CustomerDetails.as_view(), name='customer-details'),
+    url(r'^api/customers/fetch_debtors/$', DebtorsDetails.as_view(), name='debtors-details'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^ngViews/', include(ngurls)),
     url(r'^(?!ng/).*$', AngularApp.as_view(), name="angular_app"),

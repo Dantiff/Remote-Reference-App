@@ -11,47 +11,47 @@ import {Observable} from "rxjs/Rx";
 })
 export class DownloadsComponent {
 
-    public form = { };
-    public search_error:Boolean = false;
-    public search_ID = true;
-    public search_results:Boolean = true;
-    public debtor = {};
+    public submitting:Boolean = false;
+    public debtors = {};
+    public error_object = {};
+    public no_data:Boolean = false;
 
     constructor(private router: Router, private auth: AuthService,  private ref: ReferenceService, private broadcastService: BroadcastService) { }
 
-    toogleSearch() {
-        this.search_ID = this.search_ID ? false : true;
-    }
+    ngOnInit(){
+        this.fetchDebtors();
+    };
 
-    search(form) {
+
+    fetchDebtors() {
         this.submitting = true;
-        this.search_results = true;
 
-        this.ref.search(form).subscribe(
+        this.ref.fetch_debtors().subscribe(
            data => {
 
-             console.log("Search Success!");
+             console.log("Fetch Debtors Success!");
              console.log(data);
-             this.search_error = false;
              this.submitting = false;
+             this.no_data = false;
 
              //Update search data
-             this.debtor = JSON.parse(data);
+             this.debtors = JSON.parse(data);
 
 
-             this.broadcastService.broadcast('search-complete', "Search success");
+             this.broadcastService.broadcast('debtors-retrieved', "Debtors Retrieved");
 
              return true;
            },
            error => {
 
-             console.error("Error logging in!");
+             console.error("Error fetching debtors information!");
              this.submitting = false;
-             this.search_error = true;
-             this.debtor = {};
+             this.debtors = {};
+             this.no_data = true;
 
              //Retrieve error object
-
+             this.error_object = JSON.parse(error._body)
+             console.log(error)
 
              console.log(error);
              return Observable.throw(error);

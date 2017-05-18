@@ -13,9 +13,11 @@ export class CustomersComponent {
 
     public form = { };
     public search_error:Boolean = false;
-    public search_ID = true;
+    public search_ID = false;
     public search_results:Boolean = false;
+    public submitting:Boolean = false;
     public debtor = {};
+    public error_object = {};
 
     constructor(private router: Router, private auth: AuthService,  private ref: ReferenceService, private broadcastService: BroadcastService) { }
 
@@ -26,12 +28,13 @@ export class CustomersComponent {
     search(form) {
         this.submitting = true;
 
-        this.ref.search(form).subscribe(
+        this.ref.search_customer(form).subscribe(
            data => {
 
              console.log("Search Success!");
              console.log(data);
              this.search_error = false;
+             this.error_object = {};
              this.submitting = false;
 
              //Update search data
@@ -45,16 +48,16 @@ export class CustomersComponent {
            },
            error => {
 
-             console.error("Error logging in!");
+             console.error("Search error!");
              this.submitting = false;
              this.search_error = true;
              this.debtor = {};
              this.search_results = true;
 
              //Retrieve error object
+             this.error_object = JSON.parse(error._body);
 
-
-             console.log(error);
+             console.log(this.error_object);
              return Observable.throw(error);
            }
         );

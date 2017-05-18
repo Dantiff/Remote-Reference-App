@@ -542,6 +542,45 @@ footer {
 
 
 /*---------------------------------------
+    Downloads section
+-----------------------------------------*/
+.debtor-table {
+    padding-top: 0 !important;
+}
+.table-tab {
+    width: 100% !important;
+    background: #ccccff;
+    color: black;
+    font-weight: 700;
+    font-size:16px;
+    transition: all 0.4s ease-in-out;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 6px;
+    margin: 5px auto;
+    margin-bottom: 2em;
+}
+.table-tab :hover {
+    background: #f2545f;
+    color: #ffffff;
+    margin-bottom: 2em;
+}
+
+.debtor-table .results-head {
+    padding: 0;
+    color: #ffffff;
+    font-family: lobster;
+}
+.debtor-table .results-data {
+    color: red;
+    font-weight: 600;
+    font-family: poppins;
+}
+
+/*---------------------------------------
     Footer section
 -----------------------------------------*/
 

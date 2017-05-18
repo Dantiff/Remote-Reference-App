@@ -1,9 +1,9 @@
-import {Injectable, provide} from '@angular/core';
-import {BaseRequestOptions, RequestOptions} from '@angular/http';
+import { Injectable, provide } from '@angular/core';
+import { BaseRequestOptions, RequestOptions, URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class ExRequestOptions extends BaseRequestOptions  {
-  constructor() {
+  constructor(private options = new RequestOptions()) {
     super();
     this.headers.append('X-CSRFToken', this.getCookie('csrftoken'));
   }
@@ -17,5 +17,11 @@ export class ExRequestOptions extends BaseRequestOptions  {
 
   appendHeaders(headername: string, headervalue: string) {
     this.headers.append(headername, headervalue);
+  }
+
+  appendParams (paramName: string, paramValue: string) {
+        let params: URLSearchParams = new URLSearchParams();
+        params.set(paramName, paramValue);
+        this.options.search = params;
   }
 }

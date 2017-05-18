@@ -16,18 +16,41 @@
 				<p> Looking for a specific customer? <a class="link" routerLink="/customers" routerLinkActive="active">Lets go find them <sup class="fa fa-external-link"></sup></a>.</p>
 			</div>
 
-		    <div class="highlight wow fadeInUp col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1.5s">
-				<ul class="home-icon">
-				    <li><a routerLink="/customers" class="fa fa-search fa-2x fadeInUp" data-wow-delay="1s"></a></li>
-			    </ul>
-				<span class="external-link"><h3>Look Up Customers</h3><a class="link" routerLink="/customers" routerLinkActive="active"><sup class="fa fa-external-link"></sup></a></span>
-				<p>You can search specific customer information. Look Up Customer Debt Information by National ID or Mobile Number. </p>
-				<p> Already have an account? <a class="link" routerLink="/login" routerLinkActive="active">Login <sup class="fa fa-external-link"></sup></a>.</p>
+
+			<div  class="highlight debtor-table wow fadeInRight col-md-offset-1 col-md-7 col-sm-10" data-wow-delay="1s">
+				<div class="table-tab  col-md-12  col-sm-10">
+				    <span > Customer Debtor Information </span>
+				</div>
+			    <div class=" col-md-12  col-sm-10">
+			        <table class="table table-responsive table-stripped table-hover">
+			            <thead>
+			                <tr>
+    			                <th  class="results-head">Customer Name</th>
+    			                <th  class="results-head">Debtor Name</th>
+    			                <th  class="results-head">Debt Status</th>
+    			                <th  class="results-head">Debt Amount</th>
+			                </tr>
+			            </thead>
+        			    <span *ngIf="submitting" class="form-errors">
+        				    <span ><i class="fa fa-spinner fa-spin fa-2x" ></i> </span>
+        			    </span>
+			            <tbody *ngIf="!submitting">
+			                <span *ngIf="!no_data" >
+    			                <tr *ngFor="let debtor of debtors">
+    			                    <td> {{ debtor.customer.username}} </td>
+    			                    <td> {{ debtor.debtor.username}} </td>
+    			                    <td> {{ debtor.debt_status}} </td>
+    			                    <td class="results-data"> {{ debtor.amount}} </td>
+    			                </tr>
+			                </span>
+        			        <span *ngIf="no_data" class="form-errors">
+        				        <tr > {{ error_object.due_listing }} </tr>
+        			        </span>
+			            </tbody>
+			        </table>
+			    </div>
 			</div>
 
-		    <div class="highlight wow fadeInRight col-md-offset-1 col-md-3 col-sm-8" data-wow-delay="1s">
-				<h1>Lets download</h1>
-			</div>
 
 		</div>
 	</div>

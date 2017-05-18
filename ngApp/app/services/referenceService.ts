@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HTTP_PROVIDERS, Http, Response, Headers, RequestOptions} from "@angular/http";
+import {HTTP_PROVIDERS, Http, Response, Headers, RequestOptions, URLSearchParams } from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import { ExRequestOptions } from './exRequestOptions';
 
@@ -15,19 +15,17 @@ export class ReferenceService {
   }
 
   //Search customer details
-  search(data) {
+  search_customer(data) {
     let options = new ExRequestOptions();
     options.appendHeaders('Content-Type', 'application/json');
-    let body = JSON.stringify(data);
-    return this.http.post('/api/customers/details/', body, options);
+    return this.http.get('/api/customers/'+data.username+'/'+data.phone+'/', options).map((res:Response) => res.json());
   }
 
   //Fetch all data for debtors
-  fetch_debtors(data) {
+  fetch_debtors() {
     let options = new ExRequestOptions();
     options.appendHeaders('Content-Type', 'application/json');
-    let body = JSON.stringify(data);
-    return this.http.post('/api/customers/fetch_debtors/', body, options);
+    return this.http.get('/api/customers/fetch_debtors/', options).map((res:Response) => res.json());
   }
 
   //Download data for debtors
