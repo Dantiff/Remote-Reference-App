@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'kb)_6#_+ev4jes6ge7jl&rohift92@e@0%-qx#i#^e9%5^ntp8'
+SECRET_KEY = 'YOUR_SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -107,10 +107,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bivestorg$lookapp',
-        'USER': 'bivestorg',
-        'PASSWORD': 'dantifdantif',
-        'HOST': 'bivestorg.mysql.pythonanywhere-services.com',
+        'NAME': '<YOUR_DATABASE_NAME>',
+        'USER': '<YOUR_USERNAME>',
+        'PASSWORD': '<YOUR_PASSWORD',
+        'HOST': '<YOUR_HOST>',
     }
 }
 
