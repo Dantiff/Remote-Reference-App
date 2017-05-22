@@ -4,8 +4,8 @@ from core.models import *
 class Command(BaseCommand):
     def handle(self, **options):
 
-        customer = User.objects.get(username="Dantiff")
-        debtor = User.objects.get(username="DanielInvestors")
+        customer = User.objects.get(username="Jemoh")
+        debtor = User.objects.get(username="Han")
 
         due_listing = DueListing(
         customer=customer,

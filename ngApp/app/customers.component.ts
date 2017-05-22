@@ -38,7 +38,7 @@ export class CustomersComponent {
              this.submitting = false;
 
              //Update search data
-             this.debtor = JSON.parse(data);
+             this.debtor = data;
              this.search_results = true;
 
 

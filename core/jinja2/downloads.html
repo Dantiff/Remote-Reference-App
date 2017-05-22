@@ -35,17 +35,13 @@
         				    <span ><i class="fa fa-spinner fa-spin fa-2x" ></i> </span>
         			    </span>
 			            <tbody *ngIf="!submitting">
-			                <span *ngIf="!no_data" >
-    			                <tr *ngFor="let debtor of debtors">
-    			                    <td class="results-data"> {{ debtor.customer.username}} </td>
-    			                    <td class="results-data"> {{ debtor.debtor.username}} </td>
-    			                    <td class="results-data"> {{ debtor.debt_status}} </td>
-    			                    <td class="results-data"> {{ debtor.amount}} </td>
-    			                </tr>
-			                </span>
-        			        <span *ngIf="no_data" class="form-errors">
-        				        <tr > {{ error_object.due_listing }} </tr>
-        			        </span>
+    		                <tr *ngFor="let debtor of debtors">
+    		                    <td class=""> {{ debtor.customer}} </td>
+    		                    <td class=""> {{ debtor.debtor}} </td>
+    		                    <td class=""> {{ debtor.debt_status}} </td>
+    		                    <td class=""> {{ debtor.amount}} </td>
+    		                </tr>
+    				        <tr *ngIf="no_data" class="form-errors"> {{ error_object.due_listing }} </tr>
 			            </tbody>
 			        </table>
 			    </div>

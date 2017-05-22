@@ -35,7 +35,7 @@ export class DownloadsComponent {
              this.no_data = false;
 
              //Update search data
-             this.debtors = JSON.parse(data);
+             this.debtors = data;
 
 
              this.broadcastService.broadcast('debtors-retrieved', "Debtors Retrieved");

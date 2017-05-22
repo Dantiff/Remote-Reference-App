@@ -109,7 +109,15 @@ class CustomerDetails(APIView):
             return Response(dict(due_listing="Customer selected has no due listings. "), status=status.HTTP_400_BAD_REQUEST)
 
         serializer = DueListingSerializer(due_listing)
-        return JsonResponse(serializer.data)
+        dict_data = dict(serializer.data);
+        customer = User.objects.get(id=dict_data['customer'])
+        debtor = User.objects.get(id=dict_data['debtor'])
+
+        json = serializer.data
+        json['customer'] = customer.username
+        json['debtor'] = debtor.username
+
+        return Response(json, status=status.HTTP_201_CREATED)
 
 
 
@@ -123,8 +131,20 @@ class DebtorsDetails(APIView):
             return Response(dict(due_listing="No customers with due listings "), status=status.HTTP_400_BAD_REQUEST)
 
         due_listing = DueListing.objects.all()
-        serializer = DueListingSerializer(due_listing)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        serializer = DueListingSerializer(due_listing, many=True)
+        output = []
+        for listing in serializer.data:
+
+            dict_data = dict(listing);
+            customer = User.objects.get(id=dict_data['customer'])
+            debtor = User.objects.get(id=dict_data['debtor'])
+
+            json = listing
+            json['customer'] = customer.username
+            json['debtor'] = debtor.username
+            output.append(json)
+
+        return Response(output, status=status.HTTP_201_CREATED)
 
 
 
