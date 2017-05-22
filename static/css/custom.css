@@ -580,6 +580,12 @@ footer {
     font-family: poppins;
 }
 
+#downloads a:hover {
+    background: #003333;
+    color: #ffffff;
+}
+
+
 /*---------------------------------------
     Footer section
 -----------------------------------------*/

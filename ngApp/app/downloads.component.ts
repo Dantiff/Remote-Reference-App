@@ -59,4 +59,30 @@ export class DownloadsComponent {
         );
     }
 
+    download() {
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+            '#editor': function (element, renderer) {
+                return true;
+            }
+        };
+
+
+        doc.fromHTML($('#download').html(), 15, 15, {
+            'width': 300,
+                'elementHandlers': specialElementHandlers
+        });
+
+
+        doc.setProperties({
+         title: 'Customer Debtor Information',
+         subject: 'List of all customers and their debtors',
+         author: 'Daniel Mburu',
+         creator: 'Carl Dantif'
+        });
+
+        doc.save('debtors.pdf');
+
+    }
+
 }

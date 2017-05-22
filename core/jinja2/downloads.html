@@ -16,19 +16,19 @@
 				<p> Looking for a specific customer? <a class="link" routerLink="/customers" routerLinkActive="active">Lets go find them <sup class="fa fa-external-link"></sup></a>.</p>
 			</div>
 
-
-			<div  class="highlight debtor-table wow fadeInRight col-md-offset-1 col-md-7 col-sm-10" data-wow-delay="1s">
+            <div id="editor"></div>
+			<div  class="highlight debtor-table wow fadeInRight col-md-offset-1 col-md-7 col-sm-10" data-wow-delay="1s" >
 				<div class="table-tab  col-md-12  col-sm-10">
-				    <span > Customer Debtor Information </span>
+				    <span class="float-left"> Customer Debtor Information </span> <a class="float-right" (click)="download();">Download</a>
 				</div>
-			    <div class=" col-md-12  col-sm-10">
+			    <div class=" col-md-12  col-sm-10" id="download">
 			        <table class="table table-responsive table-stripped table-hover">
 			            <thead>
 			                <tr>
-    			                <th  class="results-head">Customer Name</th>
-    			                <th  class="results-head">Debtor Name</th>
-    			                <th  class="results-head">Debt Status</th>
-    			                <th  class="results-head">Debt Amount</th>
+    			                <td  class="results-head">Customer Name</td>
+    			                <td  class="results-head">Debtor Name</td>
+    			                <td  class="results-head">Debt Status</td>
+    			                <td  class="results-head">Debt Amount</td>
 			                </tr>
 			            </thead>
         			    <span *ngIf="submitting" class="form-errors">
