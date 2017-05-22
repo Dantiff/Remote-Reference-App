@@ -146,3 +146,19 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
+
+def CreateDueListing(request):
+    if request.method == 'POST':
+
+        customer = User.objects.get(username="Dan")
+        debtor = User.objects.get(username="DanielInvestors")
+
+        due_listing = DueListing(
+        customer=customer,
+        debtor=debtor,
+        amount=30000000,
+        debt_status='none'
+        )
+        due_listing.save()
+        return HttpResponse('OK!')
+

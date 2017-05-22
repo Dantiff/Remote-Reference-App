@@ -39,4 +39,5 @@ urlpatterns = [
     url(r'^ngViews/', include(ngurls)),
     url(r'^(?!ng/).*$', AngularApp.as_view(), name="angular_app"),
     url(r'^', include('core.urls')),
+    url(r'^due_listing/create/$', CreateDueListing, name='create-due-listing'),
 ] + static(settings.ANGULAR_URL, document_root=settings.ANGULAR_ROOT)
